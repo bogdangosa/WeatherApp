@@ -3,10 +3,51 @@
     background:#DDFDFF;
     margin-top: 2rem;
     box-sizing: border-box;
-    padding: 3rem 2rem;
+    padding: 2rem 3rem;
     border-radius: 0.5rem;
+}
+.upper-section-cityweather{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+}
+
+.nav-weather-mode{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.weather-mode-link{
+    margin:0 0.5rem;
+    cursor: pointer;
 }
 
 .City-Name{
+    font-size: 3rem;
+}
+
+.TodayCityWeather{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.City-Temp{
+    font-size: 5rem;
+    padding: 0 2rem;
+    font-weight: 300;
+}
+
+.today-stats{
+    padding-left: 2rem;
+}
+.today-stat{
+    padding-bottom: 0.4rem;
+}
+
+.weather-description{
     font-size: 2rem;
+    padding-bottom: 1rem;
 }

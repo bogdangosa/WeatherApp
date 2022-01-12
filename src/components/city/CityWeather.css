@@ -1,0 +1,12 @@
+.CityWeather{
+    width: 70%;
+    background:#DDFDFF;
+    margin-top: 2rem;
+    box-sizing: border-box;
+    padding: 3rem 2rem;
+    border-radius: 0.5rem;
+}
+
+.City-Name{
+    font-size: 2rem;
+}

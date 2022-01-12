@@ -1,0 +1,13 @@
+.Header{
+    width: 100vw;
+    height: 7rem;
+    background-color: #20d6dfd9;
+    color: #fff;
+    position: fixed;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 5%;
+}

@@ -1,6 +1,5 @@
-import react, { useEffect } from "react";
+import react, {useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
 import './CityWeather.css';
 import WeatherToday from "./weathermodes/WeatherToday/WeatherToday";
 import Weather5Days from './weathermodes/Weather5Days/Weather5Days';

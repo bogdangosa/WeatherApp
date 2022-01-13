@@ -1,37 +1,57 @@
 import react, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useState } from "react/cjs/react.development";
 import './CityWeather.css';
+import WeatherToday from "./weathermodes/WeatherToday/WeatherToday";
+import Weather5Days from './weathermodes/Weather5Days/Weather5Days';
 
 const CityWeather = (props) =>{
+    const [WeatherMode,setWeatherMode] = useState("Today");
     const {city_name} = useParams();
-    const Kelvin0deg = 273.15;
+    const onSearch = props.onSearch;
 
     useEffect(()=>{
+        if(props.data==undefined){
+            onSearch(city_name);
+            console.log("got here");
+        }
+
     },[]);
+
+    const ChangeWeatherMode =(weathermode)=>{
+        if(weathermode!=WeatherMode)
+            setWeatherMode(weathermode);
+    }
 
 
     return(
+        <div className="wrapper">
+        {props.data!=undefined ?
         <div className="CityWeather">
+
             <div className="upper-section-cityweather">
                 <p className="City-Name">{city_name}</p>
                 <div className="nav-weather-mode">
-                    <p className="weather-mode-link">Today</p>
-                    <p className="weather-mode-link">Hourly</p>
-                    <p className="weather-mode-link">10 days</p>
+                    <a className="weather-mode-link" onClick={()=>ChangeWeatherMode("Today")}>
+                        <p className="weather-mode-link-text">Today</p>
+                        <div className={WeatherMode=="Today"?"weather-mode-link-line visible":"weather-mode-link-line"}></div>
+                    </a>
+                    <a className="weather-mode-link" onClick={()=>ChangeWeatherMode("5Days")}>
+                        <p className="weather-mode-link-text">5 Days</p>
+                        <div className={WeatherMode=="5Days"?"weather-mode-link-line visible":"weather-mode-link-line"}></div>
+                    </a>
 
                 </div>
             </div>
-            <div className="TodayCityWeather">
-                <p className="City-Temp">{(Math.round((props.data.main.temp - Kelvin0deg) * 100) / 100)+" °C"}</p>
-                <img src={`https://openweathermap.org/img/wn/${props.data.weather[0].icon}@2x.png`}></img>
-                <div className="today-stats">
-                    <p className="weather-description today-stat">{props.data.weather[0].main}</p>
-                    <p className="today-stat">{"real feal:  "+(Math.round((props.data.main.feels_like - Kelvin0deg) * 100) / 100)+" °C"}</p>
-                    <p className="today-stat">{"wind:  "+props.data.wind.speed+'km/h'}</p>
-                    <p className="today-stat">{"humidity:  "+props.data.main.humidity+'%'}</p>
-                </div>
+            {
+                WeatherMode=="Today"?
+                <WeatherToday data={props.data} />
+                :
+                <Weather5Days data={props.data}/>
 
-            </div>
+            }
+        </div>
+        :<></>}
         </div>
     )
 }

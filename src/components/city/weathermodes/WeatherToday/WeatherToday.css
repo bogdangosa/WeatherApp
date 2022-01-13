@@ -1,0 +1,29 @@
+.WeatherToday{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.City-Name{
+    font-size: 3rem;
+}
+
+
+.City-Temp{
+    font-size: 5rem;
+    padding: 0 2rem;
+    font-weight: 300;
+}
+
+.today-stats{
+    padding-left: 2rem;
+}
+.today-stat{
+    padding-bottom: 0.4rem;
+}
+
+.weather-description{
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}

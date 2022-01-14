@@ -5,9 +5,9 @@ import WeatherToday from "./weathermodes/WeatherToday/WeatherToday";
 import Weather5Days from './weathermodes/Weather5Days/Weather5Days';
 
 const CityWeather = (props) =>{
-    const [WeatherMode,setWeatherMode] = useState("Today");
     const {city_name} = useParams();
     const onSearch = props.onSearch;
+    const setWeatherDataMode = props.setWeatherDataMode;
 
     useEffect(()=>{
         if(props.data==undefined){
@@ -17,10 +17,6 @@ const CityWeather = (props) =>{
 
     },[]);
 
-    const ChangeWeatherMode =(weathermode)=>{
-        if(weathermode!=WeatherMode)
-            setWeatherMode(weathermode);
-    }
 
 
     return(
@@ -31,19 +27,19 @@ const CityWeather = (props) =>{
             <div className="upper-section-cityweather">
                 <p className="City-Name">{city_name}</p>
                 <div className="nav-weather-mode">
-                    <a className="weather-mode-link" onClick={()=>ChangeWeatherMode("Today")}>
+                    <div className="weather-mode-link" onClick={()=>setWeatherDataMode("Today",city_name)}>
                         <p className="weather-mode-link-text">Today</p>
-                        <div className={WeatherMode=="Today"?"weather-mode-link-line visible":"weather-mode-link-line"}></div>
-                    </a>
-                    <a className="weather-mode-link" onClick={()=>ChangeWeatherMode("5Days")}>
+                        <div className={props.WeatherDataMode=="Today"?"weather-mode-link-line visible":"weather-mode-link-line"}></div>
+                    </div>
+                    <div className="weather-mode-link" onClick={()=>setWeatherDataMode("5Days",city_name)}>
                         <p className="weather-mode-link-text">5 Days</p>
-                        <div className={WeatherMode=="5Days"?"weather-mode-link-line visible":"weather-mode-link-line"}></div>
-                    </a>
+                        <div className={props.WeatherDataMode=="5Days"?"weather-mode-link-line visible":"weather-mode-link-line"}></div>
+                    </div>
 
                 </div>
             </div>
             {
-                WeatherMode=="Today"?
+                props.WeatherDataMode=="Today"?
                 <WeatherToday data={props.data} />
                 :
                 <Weather5Days data={props.data}/>

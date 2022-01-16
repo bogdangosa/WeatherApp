@@ -5,11 +5,6 @@
     padding-bottom: 2rem;
 }
 
-.City-Name{
-    font-size: 3rem;
-}
-
-
 .City-Temp{
     font-size: 5rem;
     padding: 0 2rem;
@@ -26,4 +21,13 @@
 .weather-description{
     font-size: 2rem;
     padding-bottom: 1rem;
+}
+
+@media only screen and (max-width: 700px)  {
+    .WeatherToday{
+        flex-direction: column;
+    }
+    .City-Temp{
+        font-size: 3rem;
+    }
 }

@@ -8,7 +8,7 @@ const Searchbar = (props) =>{
     return(
         <div className={"Searchbar "+props.className}>
             <input className="search-input" placeholder="Enter a City" value={props.SearchText} onChange={(e)=>setSearchText(e.target.value)}/>
-            <p className="Search-Btn" onClick={()=>onSearch()}>Search</p>
+            <div className="Search-Btn" onClick={()=>onSearch()}><p>Search</p></div>
         </div>
     )
 }

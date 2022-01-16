@@ -11,3 +11,21 @@
     box-sizing: border-box;
     padding: 0 5%;
 }
+
+.About-Btn{
+    background: #FFB258;
+    padding:0.5rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 700px)  {
+    .Header{
+        height: 5rem;
+    }
+    .About-Btn{
+        display: none;
+    }
+    
+}

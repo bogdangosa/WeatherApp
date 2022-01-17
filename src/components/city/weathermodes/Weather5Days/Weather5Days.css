@@ -8,13 +8,50 @@
 }
 .WeatherDay{
     box-sizing: border-box;
-    width: 80%;
+    width: 85%;
     background: #20d6df;
     margin-bottom: 1rem;
-    padding:1rem;
+    padding:1rem 2rem;
     border-radius: 0.3rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.main-weather-data-day{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.weather-day-temp{
+    padding: 0 3rem;
+    font-size: 1.5rem;
+}
+
+.weather-day-main-text{
+    font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 700px)  {
+    .WeatherDay{
+        width: 95%;
+        padding: 1rem;
+    }
+    .main-weather-data-day{
+        font-size: 0.5rem;
+    }
+    .weather-day-temp{
+        font-size: 1rem;
+        padding:0 1rem;
+    }
+        
+    .weather-day-main-text{
+        font-size: 1rem;
+    }
+    .day-weather-icon{
+        height: 2.5rem;
+    }
 }

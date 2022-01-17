@@ -30,7 +30,7 @@ const App = () => {
     if(result.cod==200){
       setWeatherData(result);
       if(search_bool)
-        navigate(`/${result.name}`);
+        navigate(`/${city}`);
     }
     else{
       navigate(`/404`);

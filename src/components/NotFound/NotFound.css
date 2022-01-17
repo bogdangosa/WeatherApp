@@ -1,0 +1,8 @@
+.NotFound{
+    margin-top: 3rem;
+    width: 70%;
+    background: #DDFDFF;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+}

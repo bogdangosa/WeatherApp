@@ -39,13 +39,30 @@ const WeatherDay = (props) =>{
         let curent_date = date.getDate();
         return(curent_date+' '+month+' '+year);
     } 
+    const getHour = (date_unix) =>{
+        let date = new Date(date_unix*1000);
+        let hours = date.getHours();
+        return(hours+":00 ");
+    }
+
+    const getTemp = (temp) =>{
+        const temp_string = (Math.round((temp - Kelvin0deg) * 100) / 100).toString() + " °";
+        return temp_string
+    }
+
+
 
     return (
         <div className="WeatherDay">
-            <p>{getDate(props.weather.dt)}</p>
-            <p>{(Math.round((props.weather.main.temp - Kelvin0deg) * 100) / 100)+" °C"}</p>
-            <p>{props.weather.weather[0].main}</p>
-            <img src={`https://openweathermap.org/img/wn/${props.weather.weather[0].icon}@2x.png`}></img>
+            <div className="main-weather-data-day">
+                <div className="date-container">
+                    <p>{getHour(props.weather.dt)}</p>
+                    <p>{getDate(props.weather.dt)}</p>
+                </div>
+                <p className="weather-day-temp">{getTemp(props.weather.main.temp_max)+" / "+getTemp(props.weather.main.temp_min)}</p>
+                <p className="weather-day-main-text">{props.weather.weather[0].main}</p>
+            </div>
+            <img src={`https://openweathermap.org/img/wn/${props.weather.weather[0].icon}@2x.png`} className="day-weather-icon"></img>
         </div>
     )
 }
